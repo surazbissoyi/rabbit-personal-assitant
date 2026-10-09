@@ -20,7 +20,8 @@ export const env = {
     return process.env.VAULT_MASTER_KEY;
   },
   get port() {
-    return Number(process.env.API_PORT ?? 4000);
+    // Railway injects PORT. API_PORT stays as a local override.
+    return Number(process.env.PORT ?? process.env.API_PORT ?? 4000);
   },
   get appUrl() {
     return process.env.APP_URL ?? "http://localhost:3000";
